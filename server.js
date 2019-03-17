@@ -66,7 +66,7 @@ router.post('/signup', function(req, res) {
                     return res.send(err);
             }
 
-            res.json({ success: true, message: 'User created!' });
+            res.json({ success: true, message: 'User created successfully!' });
         });
     }
 });
@@ -150,7 +150,7 @@ router.post('/signin', function(req, res) {
                 var token = jwt.sign(userToken, process.env.SECRET_KEY);
                 res.json({success: true, token: 'JWT ' + token});
             } else {
-                res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
+                res.status(401).send({success: false, msg: 'Authentication failed. Wrong password, try again!.'});
             }
         });
     });
